@@ -1,12 +1,16 @@
-
 public
-        class Main {
+        class sort {
 
 public static
         void main(String[] args) {
+// indexes:    0  1  2  3   4
+    int[] values = {-1, 3, 1, 7, 4, 5, 2, 4, 3};
+    int[] values2 = {-1, 6, 9, 8, 12};
+    System.out.println(indexOfTheSmallestStartingFrom(values2, 1));
+    System.out.println(indexOfTheSmallestStartingFrom(values2, 2));
+    System.out.println(indexOfTheSmallestStartingFrom(values2, 4));
+    System.out.println(indexOfTheSmallestStartingFrom(values, 7));
 
- int[] values = {8, 3, 7, 9, 1, 2, 4};
-sort(values);
 }
 
 public static
@@ -25,7 +29,7 @@ public static
 
 public static
         int indexOfTheSmallest(int[] array) {
-
+    int y;
     for (int i = 0; i < array.length; i++) {
         if (smallest(array) == array[i]) {
             return i;
@@ -37,11 +41,11 @@ public static
 
 public static
         int indexOfTheSmallestStartingFrom(int[] array, int index) {
-
+    int[] PA = ParseArray(array, index);
     for (int j = 0, y = index; j < array.length; j++, y++) {
 
-        if (smallest(ParseArray(array, index)) == array[j]) {
-            return j;
+        if (smallest(PA) == array[y]) {
+            return y;
         }
 
     }
@@ -70,30 +74,22 @@ public static
     array[index2] = temp;
 
 }
+
 public static
         void sort(int[] array) {
-            int[] finalArray=new int[array.length];
-            for (int i=0; i<array.length;i++){
-                
-                int y=indexOfTheSmallestStartingFrom(array,i);
-                
-                array=
-                
-                
-                System.out.println(toString(finalArray));
-            }
-           
-        
-        
-        
-        
-        
-        
-        
-        }
-        
-        
-public static
+
+    for (int i = 0; i < array.length-1; i++) {
+
+        int y = indexOfTheSmallestStartingFrom(array, i);
+
+        swap(array, i, y);
+
+ 
+    }
+
+}
+
+public static                               //useless
         String toString(int[] array) {
 
     String ArrR = "";
@@ -106,7 +102,5 @@ public static
     return "[" + ArrR + "]";
 
 }
-
-
 
 }
